@@ -10,4 +10,6 @@
     <arg name="rvizconfig" default="$(find steer_bot_viz)/rviz/steer_bot_robot.rviz" />
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" output="screen"/>
+
+    <node name="hector_trajectory_server" pkg="hector_trajectory_server" type="hector_trajectory_server" args="_source_frame_name:=base_link _target_frame_name:=odom" output="screen"/>
 </launch>
