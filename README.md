@@ -3,6 +3,8 @@
 Simulate a simple Ackermann steering vehicle in Gazebo using `ros_control`
 the `ackermann_steering_controller` and `steer_bot_hardware_gazebo`.
 
+This was tested by the ZED team at UniMe on a Ubuntu 20.04 with ROS Noetic (installed with the one line installer).
+
 ## Installation
 
 ```bash
@@ -11,22 +13,25 @@ mkdir -p <catkin_ws>/src
 
 # Clone the repo
 cd <catkin_ws>/src
-git clone https://github.com/srmainwaring/steer_bot
+git clone https://github.com/ZancleEDrive/steer_bot
 
-# Checkout a version of `steer_drive_ros` patched for ROS Melodic
-git clone https://github.com/tsedl/steer_drive_ros.git
+# Checkout a version of `steer_drive_ros` patched for ROS Melodic (but it also works for Noetic)
+git clone https://github.com/ZancleEDrive/steer_drive_ros.git
 cd steer_drive_ros
 git checkout melodic-devel
 
+#Install rosdep if not present
+sudo apt install python3-rosdep
+
 # Check dependencies
-rosdep check --from-paths src --ignore-src --rosdistro melodic
+rosdep check --from-paths src --ignore-src --rosdistro noetic
 
 # Install dependencies
-rosdep install --from-paths src --ignore-src --rosdistro melodic -y
+rosdep install --from-paths src --ignore-src --rosdistro noetic -y
 
 # Build
-cd <catkin_ws>/src
-catkin build
+cd <catkin_ws>
+catkin_make
 ```
 
 ## Run
