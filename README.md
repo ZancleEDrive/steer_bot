@@ -24,6 +24,7 @@ git checkout melodic-devel
 sudo apt install python3-rosdep
 
 # Check dependencies
+cd <catkin_ws>
 rosdep check --from-paths src --ignore-src --rosdistro noetic
 
 # Install dependencies
