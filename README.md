@@ -29,6 +29,9 @@ rosdep check --from-paths src --ignore-src --rosdistro noetic
 # Install dependencies
 rosdep install --from-paths src --ignore-src --rosdistro noetic -y
 
+#Install Hector SLAM dependency (to be inserted in rosdep)
+sudo apt install ros-noetic-hector-slam
+
 # Build
 cd <catkin_ws>
 catkin_make
