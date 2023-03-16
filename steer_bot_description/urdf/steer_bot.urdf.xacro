@@ -16,7 +16,7 @@
     wheel_separation_h = base_length - 2 * axle_offset = 0.4
     wheel_separation_w = base_width  + 2 * axle_offset = 0.4
 -->
-<robot name="steer_bot" xmlns:xacro="http://wiki.ros.org/xacro">
+<robot name="steer_bot" xmlns:xacro="http://wiki.ros.org/xacro"> 
   <!-- Include xacro for inertials, materials and wheels -->
   <xacro:include filename="$(find steer_bot_description)/urdf/wheel.xacro"/>
 
@@ -31,6 +31,18 @@
       <robotSimType>steer_bot_hardware_gazebo/SteerBotHardwareGazebo</robotSimType>
       <legacyModeNS>false</legacyModeNS>
     </plugin>
+
+<!--    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>pose_ground_truth</topicName>
+      <gaussianNoise>0.00</gaussianNoise>
+      <frameName>odom</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
+-->
   </gazebo>
 
   <!-- Math constants -->
