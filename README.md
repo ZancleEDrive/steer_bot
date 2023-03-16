@@ -8,11 +8,11 @@ This was tested by the ZED team at UniMe on a Ubuntu 20.04 with ROS Noetic (inst
 ## Installation
 
 ```bash
-# Create a workspace folder
-mkdir -p <catkin_ws>/src
+# Create a workspace folder in your home directory
+mkdir -p ~/catkin_ws/src
 
 # Clone the repo
-cd <catkin_ws>/src
+cd ~/catkin_ws/src
 git clone https://github.com/ZancleEDrive/steer_bot
 
 # Checkout a version of `steer_drive_ros` patched for ROS Melodic (but it also works for Noetic)
@@ -24,7 +24,7 @@ git checkout melodic-devel
 sudo apt install python3-rosdep
 
 # Check dependencies
-cd <catkin_ws>
+cd ~/catkin_ws
 rosdep check --from-paths src --ignore-src --rosdistro noetic
 
 # Install dependencies
@@ -34,8 +34,11 @@ rosdep install --from-paths src --ignore-src --rosdistro noetic -y
 sudo apt install ros-noetic-hector-slam
 
 # Build
-cd <catkin_ws>
+cd ~/catkin_ws
 catkin_make
+
+# Make sure your source the setup.bash file at any login
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 ## Run
@@ -43,8 +46,6 @@ catkin_make
 Start the Gazebo simulation:
 
 ```bash
-cd <catkin_ws>
-source devel/setup.bash
 roslaunch steer_bot_gazebo steer_bot_sim.launch
 ```
 
