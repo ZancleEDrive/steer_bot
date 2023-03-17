@@ -154,4 +154,65 @@
     <material>Gazebo/Green</material>
   </gazebo>
 
+<!-- IMU -->
+
+
+  <!-- Imu -->
+  <xacro:property name="imu_xsize" value="0.05" />
+  <xacro:property name="imu_ysize" value="0.05" />
+  <xacro:property name="imu_zsize" value="0.05" />
+  <xacro:property name="imu_mass"  value="0.1" />
+  <xacro:property name="imu_xpos"  value="0" />
+  <xacro:property name="imu_ypos"  value="0.00" />
+  <xacro:property name="imu_zpos"  value="${base_height/2}" />
+
+  <!-- Imu -->
+  <link name="imu_box" >
+    <visual>
+      <!--material name="blue" /-->  <!--Funziona per Rviz non per Gazebo--> 
+      <geometry>
+        <box size="${imu_xsize} ${imu_ysize} ${imu_zsize}" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${imu_xsize} ${imu_ysize} ${imu_zsize}" />
+      </geometry>
+    </collision>
+    <xacro:solid_cuboid_inertial
+        rpy="0 0 0" xyz="${imu_xsize} ${imu_ysize} ${imu_zsize}"
+        mass="${imu_mass}"
+        x="${imu_xpos}" y="${imu_ypos}" z="${imu_zpos}" />
+  </link>
+
+  <joint name="joint_imu_box" type="fixed">
+    <origin xyz="${imu_xpos} ${imu_ypos} ${imu_zpos}" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="imu_box" />
+  </joint>
+
+  <gazebo reference="imu_box">
+    <material>Gazebo/White</material> <!--Funziona per Rviz non per Gazebo-->
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin" >
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <inertialOrientationAsReference>false</inertialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
 </robot>
+
+
