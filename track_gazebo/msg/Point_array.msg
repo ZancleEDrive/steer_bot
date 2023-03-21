@@ -1,1 +1,1 @@
-geometry_msgs/Point[] points
+track_gazebo/Cone[] points
