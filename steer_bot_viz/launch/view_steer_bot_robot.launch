@@ -12,4 +12,7 @@
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" output="screen"/>
 
     <node name="hector_trajectory_server" pkg="hector_trajectory_server" type="hector_trajectory_server" args="_source_frame_name:=base_link _target_frame_name:=odom" output="screen"/>
+
+    <node name="base_link_to_imu_link" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link imu_link 100" />
+
 </launch>
