@@ -217,7 +217,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Lines
       Line Width: 0.029999999329447746
-      Name: Path
+      Name: Real trajectory
       Offset:
         X: 0
         Y: 0
@@ -234,15 +234,31 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: trajectory_marker
-      Name: Marker
+      Name: Desired trajectory
       Namespaces:
         "": true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
       Enabled: true
-      Marker Topic: estimated_trajectory_marker
-      Name: Marker
+      Marker Topic: estimated_trajectory_raw_marker
+      Name: Estimated trajectory (raw odometry)
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: estimated_trajectory_controller_marker
+      Name: Estimated trajectory (controller)
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: estimated_trajectory_localization_marker
+      Name: Estimated trajectory (robot localization)
       Namespaces:
         {}
       Queue Size: 100

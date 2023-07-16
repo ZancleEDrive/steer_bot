@@ -51,6 +51,10 @@
                 -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"
             respawn="false" output="screen" />
 
+        <node name="message_to_tf" pkg="message_to_tf" type="message_to_tf">
+	      <param name="odometry_topic" value="/steer_bot/pose_ground_truth" />
+	      <param name="frame_id" value="odom" />
+	      <param name="child_frame_id" value="base_link" />
+	</node>
     </group>
-
 </launch>
