@@ -12,3 +12,11 @@ install(DIRECTORY launch
 if (CATKIN_ENABLE_TESTING)
     roslaunch_add_file_check(launch)
 endif()
+
+
+## Mark executable scripts (Python etc.) for installation
+## in contrast to setup.py, you can choose the destination
+ catkin_install_python(PROGRAMS
+   src/chronometer.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
