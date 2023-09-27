@@ -89,7 +89,7 @@ root.title("Cronometro")
 # Fixing the window size.
 root.minsize(width=500, height=200)
 # Create an object of tkinter ImageTk
-img = ImageTk.PhotoImage(Image.open("/home/giovanni/catkin_ws/src/steer_bot/steer_bot_gazebo/src/logo.png"))
+img = ImageTk.PhotoImage(Image.open("/home/tano/catkin_ws/src/steer_bot/steer_bot_gazebo/src/logo.png"))
 
 # Create a Label Widget to display the text or Image
 label = Tkinter.Label(root, image = img)

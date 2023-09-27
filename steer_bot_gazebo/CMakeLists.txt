@@ -20,3 +20,7 @@ endif()
    src/chronometer.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
+ catkin_install_python(PROGRAMS
+   src/camera.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )

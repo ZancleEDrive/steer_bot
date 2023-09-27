@@ -55,6 +55,5 @@
 
 
     <!-- Load Chronometer-->
-    <node pkg="steer_bot_gazebo" type="chronometer.py" name="chronometer"/>
-
+    <!--<node pkg="steer_bot_gazebo" type="chronometer.py" name="chronometer"/>-->
 </launch>
