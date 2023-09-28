@@ -118,7 +118,7 @@ def movement(data):
         initial_y=data.pose.pose.position.y
         counter_reading+=1
 
-    elif (abs(data.pose.pose.position.x - initial_x)>0.01 or abs(data.pose.pose.position.y - initial_y)>0.01) and counter_reading==1:
+    elif (abs(data.pose.pose.position.x - initial_x)>0.5 or abs(data.pose.pose.position.y - initial_y)>0.5) and counter_reading==1:
         Start(label)
         print("Chronometer Started")
         counter_reading+=1
